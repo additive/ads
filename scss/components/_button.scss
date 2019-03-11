@@ -1,0 +1,270 @@
+/*╔══════════════════════════════════════════════════╗
+║                          Button                           ║
+╚══════════════════════════════════════════════════╝*/
+
+:root {
+  --btn-font-size: 1em;
+  --btn-sm: calc(var(--btn-font-size) - 0.2em);
+  --btn-md: calc(var(--btn-font-size) + 0.2em);
+  --btn-lg: calc(var(--btn-font-size) + 0.4em);
+  --btn-radius: var(--radius);
+}
+
+.btn {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: -5px;
+  padding: var(--space-xs) var(--space-md);
+  transform: translate3d(0, 0, 0) skewX(-20deg);
+  transition: all 0.15s ease-in-out, background 0.2s ease-in-out;
+  border: 1px solid var(--btn-background);
+  border-radius: var(--border-radius);
+  background-color: var(--btn-background);
+  color: var(--btn-color);
+  font-size: var(--text-sm);
+  line-height: 1;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  @include fontSmooth();
+  @include button-events(
+    $hover-color: var(--btn-color),
+    $shadow-color: var(--btn-background)
+  );
+
+  &:visited {
+    text-decoration: underline dotted;
+  }
+
+  /* firefox shit */
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  /* give the second element a little bit space */
+  > *:nth-child(2) {
+    margin-left: var(--space-xs);
+  }
+
+  /* reset the inner skew */
+  span {
+    display: inline-block;
+    flex-shrink: 0;
+    transform: skewX(20deg);
+    color: inherit;
+  }
+
+  /* icon inherits color of button label */
+  .icon {
+    flex-shrink: 0;
+    color: inherit;
+  }
+}
+
+/* ┈┈┈┈ feedback ┈┈┈┈ */
+.btn[disabled] {
+  border-color: var(--shade-4);
+  opacity: 0.6;
+  background-color: var(--shade-4);
+  box-shadow: none;
+  color: var(--shade-8);
+  cursor: not-allowed;
+
+  &:focus,
+  &:hover,
+  &:active {
+    border-color: var(--shade-4);
+    background-color: var(--shade-4);
+    box-shadow: none;
+  }
+
+  &:visited {
+    color: var(--shade-6);
+  }
+}
+
+/* ┈┈┈┈ Small ┈┈┈┈ */
+.btn--small {
+  padding: var(--space-xxs) var(--space-md);
+  font-size: var(--text-xs);
+}
+
+/* ┈┈┈┈ Large ┈┈┈┈ */
+.btn--large {
+  padding: var(--space-xs) var(--space-md);
+  font-size: calc(var(--text-md) - 2px);
+}
+
+/* ┈┈┈┈ Full-width ┈┈┈┈ */
+.btn--full-width {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ┈┈┈┈ Button group ┈┈┈┈ */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: calc(-1 * var(--space-xs));
+
+  .btn {
+    margin-right: var(--space-sm);
+    margin-bottom: var(--space-xs);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+/* ┈┈┈┈ Outline ┈┈┈┈ */
+.btn--outline {
+  background-color: var(--body-background);
+  color: var(--btn-background);
+
+  @include button-events(
+    $hover-border-color: var(--btn-background),
+    $hover-background: var(--btn-background),
+    $hover-color: var(--btn-color),
+    $active-border-color: var(--btn-background),
+    $active-background: var(--btn-background),
+    $active-color: var(--btn-color),
+    $shadow-color: var(--btn-background)
+  );
+}
+
+/* ┈┈┈┈ Primary ┈┈┈┈ */
+.btn--primary {
+  border-color: var(--btn-primary-background);
+  background-color: var(--btn-primary-background);
+  color: var(--btn-primary-color);
+
+  @include button-events(
+    $hover-border-color: var(--btn-primary-hover),
+    $hover-background: var(--btn-primary-hover),
+    $active-border-color: var(--btn-primary-active),
+    $active-background: var(--btn-primary-active),
+    $shadow-color: var(--btn-primary-background)
+  );
+}
+
+/* ┈┈┈┈ Pill ┈┈┈┈ */
+.btn--pill {
+  border-radius: 50px;
+
+  @extend %btn-reset;
+}
+
+/* ┈┈┈┈ Reset ┈┈┈┈ */
+.btn--reset {
+  @extend %btn-reset;
+}
+
+/* ┈┈┈┈ Link ┈┈┈┈ */
+.btn--link {
+  @extend %btn-off;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Buttons for business units
+
+@each $name, $color in $units {
+  .btn--#{$name} {
+    border-color: nth($color, 1);
+    background-color: nth($color, 1);
+    color: nth($color, 3);
+
+    @include button-events(
+      $hover-border-color: nth($color, 2),
+      $hover-background: nth($color, 2),
+      $active-border-color: nth($color, 1),
+      $active-background: nth($color, 1),
+      $shadow-color: nth($color, 2)
+    );
+
+    &.btn--outline {
+      background-color: transparent;
+      color: nth($color, 1);
+
+      @include button-events(
+        $hover-border-color: nth($color, 2),
+        $hover-background: nth($color, 2),
+        $hover-color: nth($color, 3),
+        $active-border-color: nth($color, 2),
+        $active-background: nth($color, 2),
+        $active-color: nth($color, 3)
+      );
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Buttons for manufactures
+
+@each $name, $color in $manufacturers {
+  .btn--#{$name} {
+    border-color: nth($color, 1);
+    background-color: nth($color, 1);
+    color: nth($color, 3);
+
+    @include button-events(
+      $hover-border-color: nth($color, 2),
+      $hover-background: nth($color, 2),
+      $active-border-color: nth($color, 1),
+      $active-background: nth($color, 1),
+      $shadow-color: nth($color, 2)
+    );
+
+    &.btn--outline {
+      background-color: transparent;
+      color: nth($color, 1);
+
+      @include button-events(
+        $hover-border-color: nth($color, 2),
+        $hover-background: nth($color, 2),
+        $hover-color: nth($color, 3),
+        $active-border-color: nth($color, 2),
+        $active-background: nth($color, 2),
+        $active-color: nth($color, 3)
+      );
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Reset style
+
+%btn-reset {
+  margin-right: 5px;
+  margin-left: 0;
+  transform: translate3d(0, 0, 0);
+
+  span {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Completely burn .btn styling
+
+%btn-off {
+  border: 0;
+  background-color: transparent;
+
+  @extend %btn-reset;
+  @extend %link;
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}

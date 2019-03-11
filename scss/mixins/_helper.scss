@@ -1,0 +1,26 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                          Helper                           ║
+  ╚══════════════════════════════════════════════════╝*/
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Round width (use?)
+
+@function round-width($i) {
+  $width: floor(100 * $i * 100 / $grid-columns) / 100;
+
+  @return $width#{"%"};
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Select all elements from X
+
+@function selectallfrom($n, $selector, $separator: "> ") {
+  $classes: ();
+
+  @for $i from 1 through $n {
+    $classname: if($i == 1, #{$selector}, #{$separator + $selector});
+    $classes: join($classes, unquote($classname), space);
+  }
+
+  @return $classes;
+}

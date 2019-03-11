@@ -1,0 +1,71 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                        Underlayer                         ║
+  ╟──────────────────────────────────────────────────╢
+  ║ Underlayer has to be in an element which position is      ║
+  ║ is relative and his overflow is hidden.                   ║
+  ╚══════════════════════════════════════════════════╝*/
+
+/*{html}
+<div class="underlayer">
+  <div class="foreground dark"></div>
+  <div class="image blured" style="background-image: url('URL')"></div>
+</div>
+*/
+
+.underlayer {
+  z-index: -1;
+
+  user-select: none;
+
+  @include fullscreen();
+
+  .foreground {
+    background: color-mod(var(--color-primary) a(80%));
+
+    z-index: 1;
+
+    @include fullscreen();
+
+    &.light {
+      background: color-mod(var(--white) a(80%));
+    }
+
+    &.dark {
+      background: color-mod(var(--black) a(80%));
+    }
+  }
+
+  .image,
+  .color {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .color {
+    background-color: var(--color-primary);
+  }
+
+  .image {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+  }
+
+  .blured {
+    filter: blur(3px);
+  }
+}

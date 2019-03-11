@@ -1,0 +1,48 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                        Definition                         ║
+  ╚══════════════════════════════════════════════════╝*/
+
+dl {
+  dd,
+  dt {
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      border-bottom: 2px dotted var(--shade-2);
+      // height: 2px;
+
+      content: "";
+
+      @include center(y);
+    }
+  }
+
+  dt {
+    &::before {
+      left: -17px;
+
+      width: 10px;
+    }
+  }
+
+  dd {
+    &::before {
+      left: -57px;
+
+      width: 50px;
+    }
+
+    &::after {
+      top: 0;
+      left: -57px;
+
+      width: 2px;
+      height: 25px;
+
+      border-bottom: 0;
+      border-left: 2px dotted var(--shade-2);
+    }
+  }
+}

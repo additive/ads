@@ -1,0 +1,31 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Modal                           ║
+  ╚══════════════════════════════════════════════════╝*/
+
+.modal {
+  .modal-content {
+    border-radius: var(--border-radius);
+  }
+
+  .modal-body,
+  .modal-header {
+    padding: var(--box-inner);
+  }
+
+  .close {
+    align-self: center;
+
+    font-size: var(--text-md);
+  }
+
+  .modal-title {
+    margin: 0;
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Backdrop element
+
+.modal-backdrop {
+  backdrop-filter: blur(2px);
+}

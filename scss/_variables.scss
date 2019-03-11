@@ -1,0 +1,9 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                        Variables                          ║
+  ╚══════════════════════════════════════════════════╝*/
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 40px !default;
+$grid-gutter-space: ($grid-gutter-width / 2) !default;
+
+@import "~bootstrap/scss/variables";

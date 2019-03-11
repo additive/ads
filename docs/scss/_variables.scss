@@ -1,0 +1,32 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                        Variables                          ║
+  ╚══════════════════════════════════════════════════╝*/
+
+:root {
+  // Header
+  --header-background: var(--body-background);
+  --header-height: 60px;
+}
+
+@include media-breakpoint-up(xs) {
+  // nothing yet
+}
+
+@include media-breakpoint-up(sm) {
+  // nothing yet
+}
+
+@include media-breakpoint-up(md) {
+  // nothing yet
+}
+
+@include media-breakpoint-up(lg) {
+  // nothing yet
+}
+
+@include media-breakpoint-up(xl) {
+  :root {
+    // Header
+    --header-height: 80px;
+  }
+}

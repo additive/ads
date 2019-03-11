@@ -1,0 +1,83 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                         Themeing                          ║
+  ╚══════════════════════════════════════════════════╝*/
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Global
+
+@each $unit, $color in $units {
+  // TODO: until browser does not support `color-mod` natively we need to recompile some colors
+  [unit="#{$unit}"] {
+    --color-primary: #{nth($color, 1)};
+    --color-primary-light: color-mod(#{nth($color, 1)} tint(15%));
+    --color-primary-dark: color-mod(#{nth($color, 1)} shade(15%));
+    --color-primary-bg: color-mod(#{nth($color, 1)} alpha(20%));
+    --btn-primary-color: #{nth($color, 3)};
+    --btn-primary-background: #{nth($color, 1)};
+    --btn-primary-active: #{nth($color, 1)};
+    --btn-primary-hover: #{nth($color, 2)};
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Business Units
+
+@each $unit, $color in $units {
+  .color-#{$unit} {
+    color: nth($color, 1) !important;
+  }
+
+  .border-#{$unit} {
+    border-color: nth($color, 1) !important;
+  }
+
+  .background-#{$unit} {
+    background-color: nth($color, 1) !important;
+
+    * > {
+      color: nth($color, 3) !important;
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Manufacturers
+
+@each $manufacturer, $color in $manufacturers {
+  .color-#{$manufacturer} {
+    color: nth($color, 1) !important;
+  }
+
+  .border-#{$manufacturer} {
+    border-color: nth($color, 1) !important;
+  }
+
+  .background-#{$manufacturer} {
+    background-color: nth($color, 1) !important;
+
+    * > {
+      color: nth($color, 3) !important;
+    }
+  }
+
+  .background-#{$manufacturer}-hover {
+    transition: background 140ms ease-in-out !important;
+
+    &:hover {
+      opacity: 1 !important;
+      background: nth($color, 1) !important;
+
+      a,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        opacity: 1 !important;
+        color: nth($color, 3) !important;
+      }
+    }
+  }
+}

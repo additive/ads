@@ -1,0 +1,30 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Card                            ║
+  ╚══════════════════════════════════════════════════╝*/
+
+:root {
+  --card-tb: #{($grid-gutter-space * 0.8)};
+  --card-rl: #{$grid-gutter-space};
+}
+
+.card {
+  border-radius: var(--border-radius);
+  border-color: var(--shade-3);
+
+  .card-header {
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .card-body {
+    padding: var(--card-tb) var(--card-rl);
+  }
+
+  .card-header:first-child {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  .card-header:last-child {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+}

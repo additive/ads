@@ -1,0 +1,152 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Colors                          ║
+  ╚══════════════════════════════════════════════════╝*/
+
+:root {
+  /* main colors */
+  --color-primary: #009098;
+  --color-primary-light: color-mod(var(--color-primary) tint(15%));
+  --color-primary-dark: color-mod(var(--color-primary) shade(15%));
+  --color-primary-bg: color-mod(var(--color-primary) alpha(20%));
+
+  --color-secondary: #161c23;
+  --color-secondary-light: color-mod(var(--color-secondary) tint(15%));
+  --color-secondary-dark: color-mod(var(--color-secondary) shade(15%));
+  --color-secondary-bg: color-mod(var(--color-secondary) alpha(20%));
+
+  --color-accent: #e83e8c;
+  --color-accent-light: color-mod(var(--color-accent) tint(15%));
+  --color-accent-dark: color-mod(var(--color-accent) shade(15%));
+  --color-accent-bg: color-mod(var(--color-accent) alpha(20%));
+
+  /* shades */
+  // generated with chroma.js => 12 steps
+  --black: #1d1d21;
+  --shade-11: #272d33;
+  --shade-10: #383e45;
+  --shade-9: #4b5157;
+  --shade-8: #5e6369;
+  --shade-7: #72777c;
+  --shade-6: #878b91;
+  --shade-5: #9ca0a4;
+  --shade-4: #b2b6b9;
+  --shade-3: #c8cbcf;
+  --shade-2: #dfe2e4;
+  --shade-1: #f6f8fa;
+  --primary-11: #349aa1;
+  --primary-10: #4fa4aa;
+  --primary-9: #66aeb3;
+  --primary-8: #7ab7bc;
+  --primary-7: #8ec2c5;
+  --primary-6: #a2cccf;
+  --primary-5: #b4d6d8;
+  --primary-4: #c8e0e2;
+  --primary-3: #daeaec;
+  --primary-2: #ecf5f5;
+  --primary-1: #ffffff;
+  --white: white;
+
+  /* business units */
+  --color-additive: var(--color-primary);
+  --color-additive-state: var(--color-primary-light);
+  --color-academy: #ee7f01;
+  --color-academy-state: color-mod(var(--color-academy) tint(15%));
+  --color-software: #364f67;
+  --color-software-state: color-mod(var(--color-software) tint(15%));
+  --color-it-service: #004494;
+  --color-it-service-state: color-mod(var(--color-it-service) tint(15%));
+  --color-messtechnik: #008dc9;
+  --color-messtechnik-state: color-mod(var(--color-messtechnik) tint(15%));
+  --color-solutions: var(--color-primary);
+  --color-solutions-state: var(--color-primary-light);
+  --color-chemie: var(--color-additive);
+  --color-chemie-state: var(--color-additive-state);
+
+  /* manufacturers */
+  --color-mathematica: #d10;
+  --color-mathematica-state: color-mod(var(--color-mathematica) tint(15%));
+  --color-minitab: #8dc63f;
+  --color-minitab-state: color-mod(var(--color-minitab) tint(15%));
+  --color-origin: #2977b2;
+  --color-origin-state: color-mod(var(--color-origin) tint(15%));
+
+  /* heading */
+  --color-test-heading: var(--shade-9);
+  --color-test-subheading: var(--shade-8);
+
+  /* feedback */
+  --color-success: #88c459;
+  --color-warning: #ffd137;
+  --color-error: #f5414f;
+  --color-info: #418ff5;
+
+  /* typography */
+  --color-link: var(--color-primary);
+  --color-link-visited: var(--color-primary-dark);
+  --color-mark: #f2f233;
+  --color-blockquote: var(--shade-8);
+  --color-blockquote-border: var(--shade-3);
+
+  /* code */
+  --code-background: color-mod(var(--shade-2) alpha(40%));
+  --code-color: var(--shade-8);
+
+  /* selection */
+  --selection-background: var(--shade-2);
+  --selection-color: var(--color-primary);
+
+  /* body */
+  --color-body: var(--black);
+  --body-background: var(--white);
+
+  /* buttons */
+  --btn-color: var(--white);
+  --btn-background: var(--shade-10);
+  --btn-active: var(--shade-9);
+  --btn-hover: var(--shade-8);
+  --btn-primary-color: var(--white);
+  --btn-primary-background: var(--color-primary);
+  --btn-primary-active: var(--color-primary-dark);
+  --btn-primary-hover: var(--color-primary-light);
+
+  /* inputs */
+  --input-color: var(--color-body);
+  --input-border: var(--shade-4);
+  --input-focus-border: var(--shade-6);
+  --input-focus-shadow: var(--shade-2);
+  --input-hover-background: var(--shade-2);
+  --input-hover-border: var(--shade-6);
+  --input-disabled-border: var(--shade-2);
+  --input-disabled-background: var(--shade-2);
+  --input-disabled-color: var(--shade-4);
+
+  /* tabs */
+  --tabs-background: var(--body-background);
+  --tabs-base: var(--shade-3);
+  --tabs-border: var(--shade-3);
+
+  /* icons */
+  --color-icon-primary: var(--shade-4);
+}
+
+// Name : Basis | Active | Text
+$units: (
+  "additive": (var(--color-additive), var(--color-additive-state), var(--white)),
+  "software": (var(--color-software), var(--color-software-state), var(--white)),
+  "it-service":
+    (var(--color-it-service), var(--color-it-service-state), var(--white)),
+  "messtechnik":
+    (var(--color-messtechnik), var(--color-messtechnik-state), var(--white)),
+  "academy": (var(--color-academy), var(--color-academy-state), var(--white)),
+  "solutions":
+    (var(--color-solutions), var(--color-solutions-state), var(--white)),
+  "chemie": (var(--color-chemie), var(--color-chemie-state), var(--white))
+);
+
+// Name : Basis | Active | Text
+$manufacturers: (
+  "mathematica":
+    (var(--color-mathematica), var(--color-mathematica-state), var(--white)),
+  "minitab": (var(--color-minitab), var(--color-minitab-state), var(--white)),
+  "origin": (var(--color-origin), var(--color-origin-state), var(--white))
+);

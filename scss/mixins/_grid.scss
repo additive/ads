@@ -1,0 +1,161 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Grid                            ║
+  ╟──────────────────────────────────────────────────╢
+  ║ @see https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
+  ╚══════════════════════════════════════════════════╝*/
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Base Grid
+
+@mixin grid {
+  /* ┈┈┈┈ Fallback for IE ┈┈┈┈ */
+  &::after,
+  &::before {
+    display: table;
+    content: "";
+  }
+  &::after {
+    clear: both;
+  }
+
+> * {
+  margin-right: $gap-horizontal;
+  margin-bottom: $gap-vertical;
+  float: left;
+}
+
+  @supports (grid-area: auto) {
+    /* ┈┈┈┈ CSS Grid style ┈┈┈┈ */
+    display: grid;
+
+    grid-row-gap: $gap-vertical;
+    grid-column-gap: $gap-horizontal;
+
+    &::after,
+    &::before {
+      content: none;
+    }
+
+    > * {
+      margin-right: 0;
+      margin-bottom: 0;
+
+      float: none;
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Auto Grid
+
+@mixin gridAuto($min-width, $fallback: 3) {
+  > * {
+    width: calc(100% /#{$fallback} - #{$gap-horizontal});
+
+    float: left;
+
+    &:nth-child(#{$fallback}n + 1) {
+      clear: both;
+    }
+  }
+
+  @supports (grid-area: auto) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+
+    > * {
+      width: auto;
+
+      margin: 0;
+
+      float: none;
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Grid with Layout
+
+@mixin gridLayout($cols...) {
+  $i: 0;
+
+  @each $col in $cols {
+    $i: $i + 1;
+
+    > :nth-of-type(#{$i}) {
+      width: calc(#{round-width(nth($col, 1))} - #{$gap-horizontal});
+    }
+  }
+
+  @supports (grid-area: auto) {
+    $i: 0;
+    grid-template-columns: repeat($grid-columns, 1fr);
+
+    @each $col in $cols {
+      $i: $i + 1;
+
+      > :nth-of-type(#{$i}) {
+        grid-column-end: span nth($col, 1);
+
+        @if length($col) > 1 {
+          grid-row-end: span nth($col, 2);
+        }
+      }
+    }
+
+    > :nth-child(n) {
+      width: auto;
+
+      margin: 0;
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Grid Layout Advanced
+
+@mixin gridAdvanced($cols...) {
+  $i: 0;
+  $span: 0;
+
+  @each $col in $cols {
+    $i: $i + 1;
+
+    > :nth-of-type(#{$i}) {
+      width: calc(
+      #{$span}*
+      ((100% - #{$gap-horizontal}*#{$grid-columns}) /#{$grid-columns}) +
+      (#{nth($col, 1)} - 1) *#{$gap-horizontal} -
+      1px
+      );
+      min-width: 0;
+
+      @if nth($col, 2) == -1 {
+        $span: $grid-columns - nth($col, 2) - nth($col, 1);
+      } @else {
+        $span: nth($col, 2) - nth($col, 1);
+      }
+    }
+  }
+
+  @supports (grid-area: auto) {
+    $i: 0;
+    grid-template-columns: repeat($grid-columns, 1fr);
+
+    @each $col in $cols {
+      $i: $i + 1;
+
+      > :nth-of-type(#{$i}) {
+        grid-row-start: nth($col, 3);
+        grid-row-end: nth($col, 4);
+        grid-column-start: nth($col, 1);
+        grid-column-end: nth($col, 2);
+      }
+    }
+
+    > :nth-child(n) {
+      width: auto;
+
+      margin: 0;
+    }
+  }
+}

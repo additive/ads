@@ -1,0 +1,203 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                          Input                            ║
+  ╚══════════════════════════════════════════════════╝*/
+
+:root {
+  --input-former-max-width: 18px;
+  --input-max-space-x: var(--space-md-fixed);
+}
+
+[contenteditable],
+input,
+select,
+textarea {
+  min-height: 2.35rem;
+  padding: 0.4rem 0.8rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 1px solid var(--input-border);
+  border-radius: var(--border-radius);
+  color: var(--input-color);
+  font-family: $font-primary;
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  vertical-align: middle;
+  background-clip: padding-box;
+
+  &:hover {
+    border-color: var(--input-hover-border);
+  }
+
+  &:focus {
+    border-color: var(--input-focus-border);
+    outline: 0;
+    box-shadow: 0 0 1px 3px var(--input-focus-shadow);
+  }
+
+  & + label {
+    user-select: none;
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Input-Group
+
+.input-group {
+  .input-group-text {
+    border-radius: var(--border-radius);
+    border-color: var(--input-border);
+    background-color: var(--shade-1);
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Email
+
+[type="search"] {
+  -webkit-appearance: none;
+  margin-top: 0;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Search
+
+[type="email"] {
+  -webkit-appearance: none;
+  margin-top: 0;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Radio & Checkbox
+
+[type="radio"],
+[type="checkbox"] {
+  &:checked,
+  &:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+
+  &:checked + label,
+  &:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    margin-right: var(--input-max-space-x);
+    padding-left: 1.65em;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+
+  // aspect
+  &:not(:checked) + label::before,
+  &:checked + label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--input-former-max-width);
+    height: var(--input-former-max-width);
+    border: 1px solid var(--input-border);
+  }
+
+  // marked aspect
+  &:not(:checked) + label::after,
+  &:checked + label::after {
+    position: absolute;
+    transition: all 0.2s ease;
+  }
+
+  // accessibility
+  &:checked:active + label::before,
+  &:not(:checked):active + label::before,
+  &:checked:focus + label::before,
+  &:not(:checked):focus + label::before {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 1px 3px var(--input-focus-shadow);
+  }
+
+  // marked aspect changes
+  &:not(:checked) + label::after {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  &:checked + label::after {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  // hover style
+  & + label:hover::before {
+    border-color: var(--input-hover-border);
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Radio
+
+[type="radio"] {
+  // aspect
+  &:checked + label::before,
+  &:not(:checked) + label::before {
+    border-radius: 100%;
+  }
+
+  // marked aspect
+  &:checked + label::after,
+  &:not(:checked) + label::after {
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--color-primary);
+  }
+
+  // disabled
+  &:disabled:not(:checked) + label::before,
+  &:disabled:checked + label::before {
+    border-color: var(--input-disabled-border);
+  }
+
+  &:disabled:checked + label::after {
+    background-color: var(--input-disabled-background);
+  }
+
+  &:disabled + label {
+    color: var(--input-disabled-color);
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Checkbox
+
+[type="checkbox"] {
+  // aspect
+  &:not(:checked) + label::before,
+  &:checked + label::before {
+    border-radius: var(--border-radius);
+  }
+
+  // marked aspect
+  &:not(:checked) + label::after,
+  &:checked + label::after {
+    content: "\2713\0020";
+    left: 0;
+    width: var(--input-former-max-width);
+    color: var(--color-primary);
+    line-height: var(--input-former-max-width);
+    text-align: center;
+  }
+
+  // disabled
+  &:disabled:not(:checked) + label::before,
+  &:disabled:checked + label::before {
+    border-color: var(--input-disabled-border);
+    box-shadow: none;
+  }
+
+  &:disabled:checked + label::after,
+  &:disabled + label {
+    color: var(--input-disabled-color);
+  }
+}

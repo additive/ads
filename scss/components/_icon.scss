@@ -1,0 +1,70 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Icon                            ║
+  ╟──────────────────────────────────────────────────╢
+  ║ @see https://medium.com/codyhouse/create-your-design-system-part-5-icons-594f39cfb1b
+  ╚══════════════════════════════════════════════════╝*/
+
+:root {
+  --icon-xs: 16px;
+  --icon-sm: 24px;
+  --icon-md: 32px;
+  --icon-lg: 48px;
+  --icon-xl: 64px;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Simple icon
+
+.icon {
+  display: inline-block;
+  height: 1em;
+  color: var(--color-icon-primary);
+  line-height: 1em;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Icon size
+
+.icon--xs {
+  font-size: var(--icon-xs);
+}
+
+.icon--sm {
+  font-size: var(--icon-sm);
+}
+
+.icon--md {
+  font-size: var(--icon-md);
+}
+
+.icon--lg {
+  font-size: var(--icon-lg);
+}
+
+.icon--xl {
+  font-size: var(--icon-xl);
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Align icon with text
+
+/*{html}
+<p class="icon-text-aligner">
+  <i class="icon ion-md-heart"></i>
+  <span>Some text next to a icon</span>
+</p>
+*/
+
+.icon-text-aligner {
+  display: flex;
+  align-items: center;
+
+  > *:nth-child(2) {
+    margin-left: var(--space-xs);
+  }
+
+  .icon {
+    flex-shrink: 0;
+    color: inherit;
+  }
+}

@@ -1,0 +1,46 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Form                            ║
+  ╚══════════════════════════════════════════════════╝*/
+
+.form-group {
+  &:not(:first-child) {
+    margin-top: var(--space-sm);
+  }
+
+  .form-control:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .form-control:not(:first-child) {
+    margin-left: 10px;
+  }
+
+  label {
+    display: block;
+
+    margin-bottom: var(--space-xxs);
+  }
+
+  .btn,
+  button {
+    height: calc(2.35rem - 1px);
+
+    padding: .4rem .8rem;
+
+    vertical-align: top;
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Fieldset
+
+fieldset {
+  > legend {
+    font-size: var(--text-lg);
+  }
+
+  .btn,
+  button {
+    @extend %btn-reset;
+  }
+}

@@ -1,0 +1,58 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Link                            ║
+  ╚══════════════════════════════════════════════════╝*/
+
+a:not(.btn) {
+  @extend %link;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Link style
+
+%link {
+  outline: none;
+
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+
+  color: var(--color-link);
+
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+
+  // &:focus:not(:active) {
+  //   outline: 1px solid var(--color-accent);
+  // }
+
+  &:hover {
+    color: var(--color-link-visited);
+
+    text-decoration-style: solid;
+  }
+
+  &:active,
+  &:visited {
+    color: var(--color-link-visited);
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Link style for each business unit
+
+@each $unit, $color in $units {
+  [unit="#{$unit}"] {
+    a:not(.btn) {
+      color: nth($color, 1);
+
+      > * {
+        color: inherit !important;
+      }
+
+      &:hover,
+      &:active,
+      &:visited {
+        color: nth($color, 2);
+      }
+    }
+  }
+}

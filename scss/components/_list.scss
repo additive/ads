@@ -1,0 +1,93 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           List                            ║
+  ╚══════════════════════════════════════════════════╝*/
+
+ol,
+ul {
+  padding-left: 2em;
+
+  li {
+    position: relative;
+
+    &::before {
+      display: block;
+      position: absolute;
+      left: calc(-2em + -5px);
+
+      width: 2em;
+
+      color: var(--color-primary-light);
+
+      font-size: inherit;
+      text-align: right;
+      opacity: .8;
+    }
+  }
+
+  &.reset {
+    @extend %list-reset;
+  }
+
+  &.inline {
+    @extend %list-reset;
+
+    > li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: .5em;
+      }
+    }
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Normal list
+
+ul {
+  list-style-type: none;
+
+  &.hash li::before {
+    content: "#";
+  }
+
+  &.custom li::before {
+    content: "☛";
+  }
+
+  li::before {
+    left: calc(-2em + -8px);
+    // opacity: .6;
+    // line-height: 2;
+    // font-size: calc(var(--text-base-size) - 0px);
+    content: "•";
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Counted list
+
+ol {
+  counter-reset: ListCounter;
+
+  list-style-type: none;
+
+  li::before {
+    content: counters(ListCounter, ".") ".";
+
+    counter-increment: ListCounter;
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// List style
+
+%list-reset {
+  padding: 0;
+
+  list-style-type: none;
+
+  li::before {
+    display: none;
+  }
+}

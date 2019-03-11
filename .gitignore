@@ -1,0 +1,17 @@
+# Packages #
+node_modules
+.git
+
+# OS #
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+*.swp
+Desktop.ini
+._*
+Thumbs.db
+
+# Generated #
+dist
+cache
+tmp

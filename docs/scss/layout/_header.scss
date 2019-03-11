@@ -1,0 +1,77 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                          Header                           ║
+  ╚══════════════════════════════════════════════════╝*/
+
+#header {
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--header-height);
+
+  overflow: hidden;
+
+  transform: translate3d(0, 0, 0);
+
+  transition: all 180ms ease;
+
+  border-bottom: 1px solid rgba(#fff, 0.2);
+
+  background: transparent;
+
+  &.sticky {
+    position: fixed;
+
+    height: calc(var(--header-height) - 10px);
+
+    border-bottom: 0;
+
+    background: var(--header-background);
+    box-shadow: 0 7px 40px rgba(#333, 0.1);
+
+    @include media-breakpoint-up(xl) {
+      height: calc(var(--header-height) - 20px);
+    }
+
+    #logo svg {
+      width: 110px;
+
+      @include media-breakpoint-up(xl) {
+        width: 120px;
+      }
+    }
+
+    #navigation li a {
+      color: var(--shade-8);
+      line-height: calc(var(--header-height) - 10px);
+
+      @include media-breakpoint-up(xl) {
+        line-height: calc(var(--header-height) - 20px);
+      }
+
+      &.active::after {
+        border-bottom-color: var(--shade-7);
+      }
+    }
+  }
+
+  .container,
+  .navbar {
+    height: 100%;
+  }
+
+  #logo {
+    display: flex;
+
+    svg {
+      width: 130px;
+      height: 100%;
+
+      @include media-breakpoint-up(xl) {
+        width: 150px;
+      }
+    }
+  }
+}

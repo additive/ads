@@ -1,0 +1,231 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                          Reboot                           ║
+  ╚══════════════════════════════════════════════════╝*/
+
+html {
+  -webkit-tap-highlight-color: rgba($black, 0);
+
+  -ms-overflow-style: scrollbar;
+      -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+
+  margin: 0;
+
+  color: var(--color-body);
+  font-family: $font-primary;
+
+  font-size: var(--text-base-size);
+  font-weight: $font-weight;
+  line-height: var(--body-line-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @include fontSmooth();
+
+  // Javascript breakpoint helper
+  &::before {
+    display: none; // Prevent from displaying.
+  }
+
+  @each $breakpoint, $breakpoint-width in $grid-breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      &::before {
+        content: "#{$breakpoint}";
+      }
+    }
+  }
+}
+
+@at-root {
+  @-ms-viewport {
+    width: device-width;
+  }
+
+  ::selection {
+    background: var(--selection-background);
+
+    color: var(--selection-color);
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+iframe,
+img,
+video {
+  max-width: 100%;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+content,
+widget,
+module,
+item {
+  display: block;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+hr {
+  height: 0;
+
+  border-top: 1px solid var(--shade-2);
+
+  border-bottom: 0;
+
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.sr-only {
+  @include sr-only();
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Code
+
+pre,
+code,
+kbd,
+samp {
+  font-family: "IBM Plex Mono", $font-family-monospace;
+  font-size: var(--text-xs);
+}
+
+code,
+pre {
+  border-radius: var(--border-radius-xs);
+
+  background: var(--code-background);
+}
+
+code {
+  padding: 3px 5px 2px;
+
+  color: var(--code-color);
+}
+
+pre {
+  padding: 6px 10px;
+
+  font-size: var(--text-sm);
+}
+
+kbd {
+  display: inline-block;
+
+  padding: 3px 5px 4px;
+
+  border: solid 1px var(--shade-2);
+  border-radius: var(--border-radius-xs);
+  border-bottom-color: var(--shade-4);
+
+  background-color: var(--shade-1);
+  line-height: 1;
+
+  box-shadow: inset 0 -1px 0 var(--white);
+  vertical-align: text-bottom;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Abbreviations
+
+mark {
+  background: var(--color-mark);
+}
+
+blockquote {
+  margin: 0 0 var(--space-md);
+  padding: 0 1em;
+
+  border-left: .25em solid var(--color-blockquote-border);
+
+  color: var(--color-blockquote);
+}
+
+sub,
+sup {
+  position: relative;
+
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Tables
+
+table {
+  border-collapse: collapse; // Prevent double borders
+}
+
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+
+  color: $table-caption-color;
+
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  // Matches default `<td>` alignment by inheriting from the `<body>`, or the
+  // closest parent with a set `text-align`.
+  text-align: inherit;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Forms
+
+textarea {
+  overflow: auto;
+
+  resize: vertical;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Specials
+
+details {
+  summary {
+    color: var(--color-primary);
+
+    cursor: pointer;
+  }
+}

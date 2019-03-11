@@ -1,0 +1,55 @@
+{
+  "name": "@additive/ui",
+  "version": "2.1.2",
+  "private": true,
+  "description": "The ADDITIVE DESIGN SYSTEM (ADS) or ADDITIVE Corporate Design (ACD). including some JavaScript files we use across our projects.",
+  "homepage": "https://git.additive-net.de/additive/package/README.md",
+  "bugs": {
+    "url": "https://git.rz.additive-net.de/libriaries/web/additive-ui/issues/",
+    "email": "development@additive-net.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.rz.additive-net.de:libriaries/web/additive-ui.git"
+  },
+  "license": "See LICENSE",
+  "author": {
+    "name": "ADDITIVE Soft- und Hardware für Technik und Wissenschaft GmbH",
+    "email": "development@additive-net.de",
+    "url": "https://www.additive-net.de/"
+  },
+  "contributors": [
+    {
+      "name": "Marvin Heilemann",
+      "email": "marvin.heilemann@additive-net.de"
+    }
+  ],
+  "scripts": {
+    "fix:scss": "sass-lint-auto-fix --config .sass-lint.yml",
+    "jest": "jest",
+    "lint:js": "eslint 'js/**/*.js' --color=true",
+    "offlint:scss": "sass-lint --config .sass-lint.yml --verbose --no-exit",
+    "test": "run-s lint:* && npm run jest"
+  },
+  "husky": {
+    "hooks": {}
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "he": "^1.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^5.13.0",
+    "eslint-plugin-jest": "^22.2.2",
+    "husky": "^1.3.1",
+    "jest": "^24.1.0",
+    "npm-run-all": "^4.1.5",
+    "sass-lint": "^1.12.1",
+    "sass-lint-auto-fix": "^0.15.1"
+  }
+}

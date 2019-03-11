@@ -1,0 +1,119 @@
+/*╔══════════════════════════════════════════════════╗
+  ║                           Meter                           ║
+  ╚══════════════════════════════════════════════════╝*/
+
+/*{html}
+<meter class="animated" value="60" low="20" high="60" optimum="100" min="0" max="120" title="GB" data-title="Macintosh HD" data-info="Disk Usage - 70GB out of 120GB"></meter>
+*/
+
+meter {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  height: 20px;
+
+  margin: 28px auto 10px;
+
+  transform: translate3d(0, 0, 0);
+
+  border: 0;
+  border-radius: var(--border-radius-xs);
+
+  background: none; /* Required to get rid of the default background prop. */
+  background-color: var(--shade-2);
+  /* Firefox */
+  box-shadow: none;
+
+     appearance: none;
+  -webkit-appearance: meter;
+          -moz-appearance: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: -120%;
+
+    color: var(--shade-4);
+  }
+
+  &::before {
+    left: 0;
+    content: attr(data-title);
+  }
+
+  &::after {
+    right: 0;
+    content: attr(data-info);
+  }
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Firefox
+
+:-moz-meter-optimum::-moz-meter-bar {
+  background: var(--color-success);
+}
+
+:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: var(--color-warning);
+}
+
+:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: var(--color-error);
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Safari & Chrome
+
+meter::-webkit-meter-bar {
+  border-radius: var(--border-radius-xs);
+
+  background: var(--shade-2);
+
+  overflow: hidden;
+}
+
+meter::-webkit-meter-optimum-value {
+  background: var(--color-success);
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: var(--color-warning);
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background: var(--color-error);
+}
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Animated styles
+
+meter.animated {
+  background-image: linear-gradient(
+  135deg,
+  transparent,
+  transparent 33%,
+  var(--shade-2) 33%,
+  var(--shade-2) 66%,
+  transparent 66%
+  );
+
+  background-size: 50px 25px;
+  animation: meter-animate-stripes 2s linear infinite;
+}
+
+// BUG: chrome does not render the animation correctly
+meter.animated::-webkit-meter-bar {
+  background: linear-gradient(
+  135deg,
+  transparent,
+  transparent 33%,
+  var(--shade-2) 33%,
+  var(--shade-2) 66%,
+  transparent 66%
+  );
+
+  background-size: 50px 25px;
+  animation: meter-animate-stripes 2s linear infinite;
+}
