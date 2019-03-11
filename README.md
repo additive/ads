@@ -1,4 +1,6 @@
-# ADDITIVE DESIGN SYSTEM (ADS) 📦
+# (WIP) ADDITIVE DESIGN SYSTEM (ADS) 📦
+
+@hem TODO this
 
 This package provides some default SCSS and JS files we are using in our
 projects. It also contains several configuration files for linters and

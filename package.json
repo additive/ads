@@ -1,16 +1,16 @@
 {
-  "name": "@additive/ui",
-  "version": "2.1.2",
+  "name": "@additive/ads",
+  "version": "2.2.0",
   "private": true,
   "description": "The ADDITIVE DESIGN SYSTEM (ADS) or ADDITIVE Corporate Design (ACD). including some JavaScript files we use across our projects.",
   "homepage": "https://git.additive-net.de/additive/package/README.md",
   "bugs": {
-    "url": "https://git.rz.additive-net.de/libriaries/web/additive-ui/issues/",
+    "url": "https://github.com/additive/ads/issues",
     "email": "development@additive-net.de"
   },
   "repository": {
     "type": "git",
-    "url": "git@git.rz.additive-net.de:libriaries/web/additive-ui.git"
+    "url": "git@github.com:additive/ads.git"
   },
   "license": "See LICENSE",
   "author": {
