@@ -7,20 +7,19 @@ const postcss = require('gulp-postcss')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('autoprefixer')
 
-const SRC = './scss'
+const SRC = path.resolve(__dirname, 'scss')
 const FILE = {
-  additive: SRC + '/additive.scss',
-  minimal: SRC + '/additive-minimal.scss',
+  additive: path.resolve(SRC, 'ads.scss'),
+  minimal: path.resolve(SRC, 'adsm.scss'),
 }
-const DEST = './css'
+const DEST = path.resolve(__dirname, 'css')
 
-gulp.task('style:additive', () => compile(FILE.additive, 'ads.pkg'))
-gulp.task('style:minimal', () => compile(FILE.minimal, 'ads'))
+gulp.task('style:additive', () => compile(FILE.additive))
+gulp.task('style:minimal', () => compile(FILE.minimal))
 
-function compile(src, name) {
+function compile(src) {
   return gulp
     .src(src)
-    .pipe(rename({ basename: name }))
     .pipe(sourcemaps.init())
     .pipe(
       sass({

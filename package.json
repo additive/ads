@@ -2,15 +2,9 @@
   "name": "@additive/ads",
   "version": "3.0.0",
   "description": "The ADDITIVE DESIGN SYSTEM (ADS) or ADDITIVE Corporate Design (ACD).",
-  "homepage": "https://git.additive-net.de/additive/package/README.md",
-  "bugs": {
-    "url": "https://github.com/additive/ads/issues",
-    "email": "development@additive-net.de"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:additive/ads.git"
-  },
+  "homepage": "https://github.com/additive/ads",
+  "bugs": "https://github.com/additive/ads/issues",
+  "repository": "git@github.com:additive/ads.git",
   "license": "See license in LICENSE",
   "author": {
     "name": "ADDITIVE Soft- und Hardware für Technik und Wissenschaft GmbH",
@@ -20,7 +14,7 @@
   "contributors": [
     {
       "name": "Marvin Heilemann",
-      "email": "marvin.heilemann@additive-net.de"
+      "email": "marvin.heilemann+github@additive-net.de"
     }
   ],
   "files": [
@@ -28,12 +22,11 @@
     "scss"
   ],
   "scripts": {
-    "start": "npm run dev",
     "build": "gulp",
     "dev": "gulp watch",
-    "jest": "jest",
+    "prepare": "npm run build",
     "pretty": "pretty-quick",
-    "prepare": "npm run build"
+    "start": "npm run dev"
   },
   "husky": {
     "hooks": {
@@ -41,10 +34,7 @@
     }
   },
   "dependencies": {
-    "bootstrap": "^4.1.3",
-    "he": "^1.1.1",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.7"
+    "bootstrap": "^4.1.3"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.10",
@@ -64,5 +54,5 @@
     "node": ">=10.15.1",
     "npm": ">=6.5.1"
   },
-  "unpkg": "css/ads.pkg.min.css"
+  "unpkg": "css/ads.min.css"
 }
