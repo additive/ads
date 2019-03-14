@@ -18,11 +18,11 @@
     clear: both;
   }
 
-> * {
-  margin-right: $gap-horizontal;
-  margin-bottom: $gap-vertical;
-  float: left;
-}
+  > * {
+    margin-right: $gap-horizontal;
+    margin-bottom: $gap-vertical;
+    float: left;
+  }
 
   @supports (grid-area: auto) {
     /* ┈┈┈┈ CSS Grid style ┈┈┈┈ */
@@ -122,10 +122,10 @@
 
     > :nth-of-type(#{$i}) {
       width: calc(
-      #{$span}*
-      ((100% - #{$gap-horizontal}*#{$grid-columns}) /#{$grid-columns}) +
-      (#{nth($col, 1)} - 1) *#{$gap-horizontal} -
-      1px
+        #{$span}*
+          ((100% - #{$gap-horizontal}*#{$grid-columns}) /#{$grid-columns}) +
+          (#{nth($col, 1)} - 1) *#{$gap-horizontal} -
+          1px
       );
       min-width: 0;
 

@@ -25,9 +25,9 @@ meter {
   /* Firefox */
   box-shadow: none;
 
-     appearance: none;
+  appearance: none;
   -webkit-appearance: meter;
-          -moz-appearance: none;
+  -moz-appearance: none;
 
   &::before,
   &::after {
@@ -91,12 +91,12 @@ meter::-webkit-meter-even-less-good-value {
 
 meter.animated {
   background-image: linear-gradient(
-  135deg,
-  transparent,
-  transparent 33%,
-  var(--shade-2) 33%,
-  var(--shade-2) 66%,
-  transparent 66%
+    135deg,
+    transparent,
+    transparent 33%,
+    var(--shade-2) 33%,
+    var(--shade-2) 66%,
+    transparent 66%
   );
 
   background-size: 50px 25px;
@@ -106,12 +106,12 @@ meter.animated {
 // BUG: chrome does not render the animation correctly
 meter.animated::-webkit-meter-bar {
   background: linear-gradient(
-  135deg,
-  transparent,
-  transparent 33%,
-  var(--shade-2) 33%,
-  var(--shade-2) 66%,
-  transparent 66%
+    135deg,
+    transparent,
+    transparent 33%,
+    var(--shade-2) 33%,
+    var(--shade-2) 66%,
+    transparent 66%
   );
 
   background-size: 50px 25px;

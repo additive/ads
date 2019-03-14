@@ -131,22 +131,58 @@
 
 // Name : Basis | Active | Text
 $units: (
-  "additive": (var(--color-additive), var(--color-additive-state), var(--white)),
-  "software": (var(--color-software), var(--color-software-state), var(--white)),
-  "it-service":
-    (var(--color-it-service), var(--color-it-service-state), var(--white)),
-  "messtechnik":
-    (var(--color-messtechnik), var(--color-messtechnik-state), var(--white)),
-  "academy": (var(--color-academy), var(--color-academy-state), var(--white)),
-  "solutions":
-    (var(--color-solutions), var(--color-solutions-state), var(--white)),
-  "chemie": (var(--color-chemie), var(--color-chemie-state), var(--white))
+  "additive": (
+    var(--color-additive),
+    var(--color-additive-state),
+    var(--white),
+  ),
+  "software": (
+    var(--color-software),
+    var(--color-software-state),
+    var(--white),
+  ),
+  "it-service": (
+    var(--color-it-service),
+    var(--color-it-service-state),
+    var(--white),
+  ),
+  "messtechnik": (
+    var(--color-messtechnik),
+    var(--color-messtechnik-state),
+    var(--white),
+  ),
+  "academy": (
+    var(--color-academy),
+    var(--color-academy-state),
+    var(--white),
+  ),
+  "solutions": (
+    var(--color-solutions),
+    var(--color-solutions-state),
+    var(--white),
+  ),
+  "chemie": (
+    var(--color-chemie),
+    var(--color-chemie-state),
+    var(--white),
+  ),
 );
 
 // Name : Basis | Active | Text
 $manufacturers: (
-  "mathematica":
-    (var(--color-mathematica), var(--color-mathematica-state), var(--white)),
-  "minitab": (var(--color-minitab), var(--color-minitab-state), var(--white)),
-  "origin": (var(--color-origin), var(--color-origin-state), var(--white))
+  "mathematica": (
+    var(--color-mathematica),
+    var(--color-mathematica-state),
+    var(--white),
+  ),
+  "minitab": (
+    var(--color-minitab),
+    var(--color-minitab-state),
+    var(--white),
+  ),
+  "origin": (
+    var(--color-origin),
+    var(--color-origin-state),
+    var(--white),
+  ),
 );

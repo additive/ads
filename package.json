@@ -1,8 +1,7 @@
 {
   "name": "@additive/ads",
-  "version": "2.2.0",
-  "private": true,
-  "description": "The ADDITIVE DESIGN SYSTEM (ADS) or ADDITIVE Corporate Design (ACD). including some JavaScript files we use across our projects.",
+  "version": "3.0.0",
+  "description": "The ADDITIVE DESIGN SYSTEM (ADS) or ADDITIVE Corporate Design (ACD).",
   "homepage": "https://git.additive-net.de/additive/package/README.md",
   "bugs": {
     "url": "https://github.com/additive/ads/issues",
@@ -12,7 +11,7 @@
     "type": "git",
     "url": "git@github.com:additive/ads.git"
   },
-  "license": "See LICENSE",
+  "license": "See license in LICENSE",
   "author": {
     "name": "ADDITIVE Soft- und Hardware für Technik und Wissenschaft GmbH",
     "email": "development@additive-net.de",
@@ -24,15 +23,22 @@
       "email": "marvin.heilemann@additive-net.de"
     }
   ],
+  "files": [
+    "css",
+    "scss"
+  ],
   "scripts": {
-    "fix:scss": "sass-lint-auto-fix --config .sass-lint.yml",
+    "start": "npm run dev",
+    "build": "gulp",
+    "dev": "gulp watch",
     "jest": "jest",
-    "lint:js": "eslint 'js/**/*.js' --color=true",
-    "offlint:scss": "sass-lint --config .sass-lint.yml --verbose --no-exit",
-    "test": "run-s lint:* && npm run jest"
+    "pretty": "pretty-quick",
+    "prepare": "npm run build"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "npm run pretty"
+    }
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
@@ -41,15 +47,22 @@
     "popper.js": "^1.14.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "babel-jest": "^24.1.0",
-    "eslint": "^5.13.0",
-    "eslint-plugin-jest": "^22.2.2",
+    "autoprefixer": "^9.4.10",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "husky": "^1.3.1",
-    "jest": "^24.1.0",
     "npm-run-all": "^4.1.5",
-    "sass-lint": "^1.12.1",
-    "sass-lint-auto-fix": "^0.15.1"
-  }
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0",
+    "sass": "^1.17.2"
+  },
+  "engines": {
+    "node": ">=10.15.1",
+    "npm": ">=6.5.1"
+  },
+  "unpkg": "css/ads.pkg.min.css"
 }

@@ -20,7 +20,7 @@ ul {
 
       font-size: inherit;
       text-align: right;
-      opacity: .8;
+      opacity: 0.8;
     }
   }
 
@@ -35,7 +35,7 @@ ul {
       display: inline-block;
 
       &:not(:last-child) {
-        margin-right: .5em;
+        margin-right: 0.5em;
       }
     }
   }

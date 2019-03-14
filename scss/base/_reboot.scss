@@ -6,7 +6,7 @@ html {
   -webkit-tap-highlight-color: rgba($black, 0);
 
   -ms-overflow-style: scrollbar;
-      -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
 }
@@ -158,7 +158,7 @@ blockquote {
   margin: 0 0 var(--space-md);
   padding: 0 1em;
 
-  border-left: .25em solid var(--color-blockquote-border);
+  border-left: 0.25em solid var(--color-blockquote-border);
 
   color: var(--color-blockquote);
 }
@@ -173,11 +173,11 @@ sup {
 }
 
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 
 // ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
