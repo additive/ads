@@ -3,6 +3,18 @@
 A package for ADDITIVE to have a unique design system across multiple projects.
 It is part of our new Corporate Design.
 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [Production](#production)
+- [Todo](#todo)
+
+## Installation
+
+```bash
+$ npm install @additive/ads
+```
+
 ## Usage
 
 We have to packages _ads_ and _adsm_. ADSM is smaller and just includes some
@@ -20,15 +32,10 @@ page.
 
 > CDN: `"unpkg": "css/ads.min.css"`
 
-## Installation
-
-```bash
-$ npm install
-```
-
 ## Development
 
 ```bash
+$ npm install
 $ npm start
 ```
 
