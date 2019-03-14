@@ -47,4 +47,5 @@ $ npm run build
 
 ## Todo
 
-- [] ...
+- [] Add badges
+- [] Add NPM repo notice somewhere
