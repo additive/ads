@@ -17,10 +17,10 @@ $ npm install @additive/ads
 
 ## Usage
 
-We have to packages _ads_ and _adsm_. ADSM is smaller and just includes some
-important parts, like the bootstrap grid, see more in
-[scss/adsm.scss](scss/adsm.scss). The normal version includes components and
-styles plus the minimal package.
+We have two packages; _ads_ and _adsm_. **ADSM** is smaller and just includes
+some important parts, like the bootstrap grid, see more in
+[scss/adsm.scss](scss/adsm.scss). **ADS** includes components and styles plus
+the **ADSM** package.
 
 To use one of them. Just import them via SCSS or load the CSS directly into your
 page.
@@ -30,7 +30,8 @@ page.
 @import '@additive/ads/scss/adsm'; // minimal
 ```
 
-> CDN: `"unpkg": "css/ads.min.css"`
+> CDN:
+> [https://unpkg.com/@additive/ads@version/file](https://unpkg.com/@additive/ads)
 
 ## Development
 

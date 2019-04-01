@@ -1,11 +1,18 @@
 {
   "name": "@additive/ads",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "The ADDITIVE DESIGN SYSTEM (ADS) or ADDITIVE Corporate Design (ACD).",
-  "homepage": "https://github.com/additive/ads",
+  "homepage": "https://www.additive-net.de/",
   "bugs": "https://github.com/additive/ads/issues",
   "repository": "git@github.com:additive/ads.git",
   "license": "See license in LICENSE",
+  "keywords": [
+    "ads",
+    "additive",
+    "ui",
+    "ci",
+    "cd"
+  ],
   "author": {
     "name": "ADDITIVE Soft- und Hardware für Technik und Wissenschaft GmbH",
     "email": "development@additive-net.de",
