@@ -1,5 +1,7 @@
 # [ADDITIVE](https://www.additive-net.de/) DESIGN SYSTEM (ADS) 📦
 
+![npm](https://img.shields.io/npm/v/@additive/ads.svg?style=for-the-badge)
+
 A package for ADDITIVE to have a unique design system across multiple projects.
 It is part of our new Corporate Design.
 
@@ -7,7 +9,6 @@ It is part of our new Corporate Design.
 - [Usage](#usage)
 - [Development](#development)
 - [Production](#production)
-- [Todo](#todo)
 
 ## Installation
 
@@ -27,7 +28,8 @@ page.
 
 ```scss
 @import '@additive/ads/scss/ads';
-@import '@additive/ads/scss/adsm'; // minimal
+// or for minimal
+@import '@additive/ads/scss/adsm';
 ```
 
 > CDN:
@@ -45,8 +47,3 @@ $ npm start
 ```bash
 $ npm run build
 ```
-
-## Todo
-
-- [] Add badges
-- [] Add NPM repo notice somewhere
