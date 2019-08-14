@@ -25,7 +25,7 @@
   }
 }
 
-@mixin logo-hover($animation: "logo-hover") {
+@mixin logo-hover($animation: logo-hover) {
   #logo:hover svg #ADDL-SIGNET {
     polygon {
       animation: $animation 0.6s ease-in-out 1 normal forwards;
